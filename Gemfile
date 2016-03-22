@@ -29,6 +29,12 @@ gem 'bower-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'faker'
+
+gem 'sunspot_rails'
+gem 'sunspot_solr', :git => "https://github.com/mrcsparker/sunspot.git"
+gem 'progress_bar'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
