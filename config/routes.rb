@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'angular_test/index'
+
   devise_for :users
   get 'dashboard/index'
 
@@ -9,6 +11,7 @@ Rails.application.routes.draw do
    root 'dashboard#index'
 
   get 'customer/index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

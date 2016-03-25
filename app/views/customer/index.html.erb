@@ -4,17 +4,22 @@
   </h1>
 </header>
 
+<article ng-app="customers" ng-controller="CustomerSearchController">
 <section class="search-form">
-  <%= form_for :customers, method: :get do |f| %>
+  <form>
   <div class="input-group input-group-lg">
-    <%= label_tag :keywords, nil, class:"sr-only" %>
-    <%= text_field_tag :keywords, nil, placeholder: "First Name, Last Name, or Email Address",
-                       class: "form-control input-lg" %>
+    <label for="keywords" class="sr-only">Keywords</label>
+    <input type="text" name="keywords" class="form-control input-lg"
+           placeholder="First Name, Last Name, or Email Address" ng-model="keywords">
     <span class="input-group-btn">
-      <%= submit_tag"Find Customers", class: "btn btn-primary btn-lg" %>
+      <button class="btn btn-primary btn-lg" ng-click="search(keywords)">Find Customers</button>
     </span>
   </div>
-  <% end %>
+  </form>
+  <h1 class="searchedFor" ng-if="searchedFor">
+    <small>Searched for:</small>
+    {{searchedFor}}
+  </h1>
 </section>
 
 <section class="search-results">
@@ -31,15 +36,14 @@
       <th>Joined</th>
     </tr>
     </thead>
-    <tbody>
-    <% @customers.each do |customer| %>
+    <tbody class="table" ng-repeat="customer in customers">
     <tr>
-      <td><%= customer.first_name %></td>
-      <td><%= customer.last_name %></td>
-      <td><%= customer.email %></td>
-      <td><%= customer.created_at.to_date %></td>
+      <td>{{ customer.first_name }}</td>
+      <td>{{ customer.last_name }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.created_at | date}}</td>
     </tr>
-    <% end %>
     </tbody>
   </table>
 </section>
+</article>
