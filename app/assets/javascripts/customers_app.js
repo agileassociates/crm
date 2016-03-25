@@ -8,7 +8,12 @@ app.controller("CustomerSearchController", [
 
         var page = 0;
 
-        $scope.search = function(searchTerm) {
+        $scope.search = function(searchTerm)
+        {
+            if (searchTerm.length < 3) {
+                return;
+            }
+
             $http.get("/customer/index.json", { "params": { "keywords" : searchTerm, "page" : page}}).then(
                 function(response) {$scope.customers = response.data;
                 }, function(response) { alert("Error: " + response.status);}
