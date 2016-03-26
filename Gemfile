@@ -38,12 +38,23 @@ gem 'progress_bar'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+end
+
+group :development, :test do
+  gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+
+  gem 'database_cleaner'
 end
 
 group :development do
