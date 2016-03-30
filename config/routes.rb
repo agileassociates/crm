@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    root 'dashboard#index'
 
   get 'customer/index'
+  get 'customer/:id' =>'customer#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
