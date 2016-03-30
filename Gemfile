@@ -34,6 +34,8 @@ gem 'faker'
 gem 'sunspot_rails'
 gem 'sunspot_solr', :git => "https://github.com/mrcsparker/sunspot.git"
 gem 'progress_bar'
+gem 'angular-rails-templates'
+gem 'sprockets', '~> 2.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

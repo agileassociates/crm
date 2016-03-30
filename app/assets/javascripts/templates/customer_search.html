@@ -1,0 +1,60 @@
+
+<header>
+    <h1 class="h2">Customer Search</h1>
+</header>
+<section class="search-form">
+    <form>
+        <label for="search.keywords" class="sr-only">Keywords</label>
+        <input type="text"
+               name="keywords"
+               class="form-control input-lg"
+               placeholder="First Name, Last Name, or Email Address"
+               ng-change="search(keywords)"
+               ng-model="keywords">
+    </form>
+</section>
+<aside class="sr-only loading-progress">
+    <span ng-if="loading" class="loading">Loading</span>
+    <span ng-if="!loading" class="not-loading">Done Loading</span>
+</aside>
+<section class="search-results" ng-if="customers.length > 0">
+    <header>
+        <h1 class="h3">Results</h1>
+    </header>
+    <nav>
+        <ul class="pager">
+            <li class="previous">
+                <a href="" ng-click="previousPage()">&larr; Previous</a>
+            </li>
+            <li class="next">
+                <a href="" ng-click="nextPage()">Next &rarr;</a>
+            </li>
+        </ul>
+    </nav>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Joined</th>
+        </tr>
+        </thead>
+        <tbody class="table table-striped" ng-repeat="customer in customers">
+        <tr>
+            <td>{{ customer.first_name }}</td>
+            <td>{{ customer.last_name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.created_at | date}}</td>
+            <td> <div class="pull-right">
+                <button class="btn btn-small btn-primary"
+                        ng-click="viewDetails(customer)">
+                    View Details…
+                </button>
+            </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
