@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'customer/index'
   get 'customer/:id' =>'customer#show'
 
+  get "angular_test", to: "angular_test#index"
+
+  get 'fake_billing' => "fake_billing#show"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
