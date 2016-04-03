@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    root 'dashboard#index'
 
   get 'customer/index'
+  put 'customer/:id' =>'customer#update'
   get 'customer/:id' =>'customer#show'
 
   get "angular_test", to: "angular_test#index"

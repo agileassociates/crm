@@ -5,7 +5,8 @@
     "angular-mocks": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
-    "angular": "~> 1.5"
+    "angular": "~> 1.5",
+    "angular-messages": "latest"
   },
   "resolutions": {
     "angular": "1.5"
